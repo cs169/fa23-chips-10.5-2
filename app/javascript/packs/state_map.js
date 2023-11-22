@@ -1,4 +1,4 @@
-st d3 = require('d3');
+const d3 = require('d3');
 const stateMapUtils = require('./state_map_utils');
 
 require('../stylesheets/map.scss');
