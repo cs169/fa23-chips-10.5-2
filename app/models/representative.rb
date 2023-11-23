@@ -2,9 +2,13 @@
 
 class Representative < ApplicationRecord
   has_many :news_items, dependent: :delete_all
+  serialize :photo, String
 
   def self.civic_api_to_representative_params(rep_info)
     reps = []
+
+    # enum political_party: [:democrat, :republican, :independent, :other]
+
 
     rep_info.officials.each_with_index do |official, index|
       ocdid_temp = ''
@@ -21,12 +25,12 @@ class Representative < ApplicationRecord
           name: official.name,
           ocdid: ocdid_temp,
           title: title_temp,
-          # street: official.address[0].line1,
-          # city: official.address[0].city,
-          # state: official.address[0].state,
-          # zip: official.address[0].zip,
-          # party: official.party
-          # photo: official.photoUrl
+          street: official.address&.first&.line1,
+          city: official.address&.first&.city,
+          state: official.address&.first&.state,
+          zip: official.address&.first&.zip,
+          political_party: official.party,
+          photo: official.photo_url
         })
 
       reps.push(rep)
