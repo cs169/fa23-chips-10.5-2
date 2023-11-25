@@ -21,6 +21,7 @@ class Representative < ApplicationRecord
         end
       end
 
+      # added logic for 1.1
       to_add = find_official(official.name, title_temp, ocdid_temp)
       if to_add
         reps.push(to_add)
