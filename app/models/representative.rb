@@ -22,6 +22,7 @@ class Representative < ApplicationRecord
         end
       end
 
+      # iter 1.1 code
       to_add = find_official(official.name, title_temp, ocdid_temp, official.address&.first&.line1, official.address&.first&.city, official.address&.first&.state, official.address&.first&.zip, official.party, official.photo_url)
       if to_add
         reps.push(to_add)
