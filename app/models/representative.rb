@@ -36,21 +36,24 @@ class Representative < ApplicationRecord
   end
 
   def self.find_or_create_representative(official, ocdid, title)
-    existing_rep = find_existing_representative(official, ocdid, title)
+    existing_rep = find_existing_representative([official, ocdid, title])
 
     return existing_rep if existing_rep
 
     create_representative(official, ocdid, title)
   end
 
-  def self.find_existing_representative(official, ocdid, title)
+  def self.find_existing_representative(arr)
+    official = arr[0]
+    ocdid = arr[1]
+    title = arr[2]
     address = official.address&.first
 
     Representative.find_by(
       name:            official.name,
       ocdid:           ocdid,
       title:           title,
-      street:          address&.line1,
+      street:          official.address&.first&.line1,
       city:            address&.city,
       state:           address&.state,
       zip:             address&.zip,
