@@ -1,0 +1,17 @@
+<h1><%= @rep.name %></h1>
+
+<h3><%= @rep.political_party %></h3>
+<h3><%= @rep.title %></h3>
+<h3><%= @rep.ocdid %></h3>
+
+<h4><%= @rep.street %></h4>
+<h4><%= @rep.city %>  <%= @rep.state %></h4>
+<h4><%= @rep.zip %></h4>
+
+<% if @rep.photo.present? %>
+  <img src="<%= @rep.photo %>" alt="Representative Photo">
+<% else %>
+  <p>No photo available</p>
+<% end %>
+
+

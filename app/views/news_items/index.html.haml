@@ -29,6 +29,8 @@
                                         = item.title
                                         &nbsp;
                                         %i.fas.fa-external-link-alt
+                                    %br
+                                    = link_to representative_path(item.representative), item.representative.name
                                 %td= item.description
                                 %td
                                     %time.timeago{ datetime: item.created_at.iso8601 }
