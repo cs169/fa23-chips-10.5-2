@@ -36,6 +36,7 @@ class Representative < ApplicationRecord
             political_party: official.party,
             photo: official.photo_url
           })
+
         reps.push(rep)
       end
     end
