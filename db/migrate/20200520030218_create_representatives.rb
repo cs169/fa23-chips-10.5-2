@@ -4,6 +4,7 @@ class CreateRepresentatives < ActiveRecord::Migration[5.2]
   def up
     create_table :representatives do |t|
       t.string :name
+      t.string :political_party
       t.timestamps null: false
     end
   end

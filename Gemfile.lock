@@ -521,6 +521,7 @@ DEPENDENCIES
   axe-core-cucumber
   axe-core-rspec
   bootsnap (>= 1.1.0)
+  bundler (= 2.1.4)
   byebug
   codecov
   cucumber-rails
