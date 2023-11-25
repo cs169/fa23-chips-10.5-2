@@ -9,7 +9,7 @@ RSpec.describe Representative do
     expect(reps.length).to eq(1)
     expect(reps.first.id).to eq(existing_rep.id)
   end
-  
+
   private
 
   def build_rep_info_with_existing_rep
@@ -19,4 +19,3 @@ RSpec.describe Representative do
     rep_info
   end
 end
-
