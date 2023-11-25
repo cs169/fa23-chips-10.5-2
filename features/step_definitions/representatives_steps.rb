@@ -1,4 +1,4 @@
-
+# frozen_string_literal: true
 # Given('there is a representative in the database') do |table|
 #   # Extract data from the Cucumber table
 #   data = table.hashes.first
