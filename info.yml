@@ -1,0 +1,24 @@
+project:
+  name: 'CS169-fa23-2'
+  owner: 'fa23'
+  teamId: '2'
+  identities: {}
+  notifications:
+    email: 'anvikunta@berkeley.edu'
+  members:
+    member1:
+      name: 'Anvi'
+      surname: 'Kunta' 
+      githubUsername: 'akunta0'
+    member2:
+      name: 'Aadhiti'
+      surname: 'Ghankota' 
+      githubUsername: 'aadhitig'
+    member3:
+      name: 'Divya'
+      surname: 'Mallemadugula' 
+      githubUsername: 'divyamallema'
+    member4:
+      name: 'Saif'
+      surname: 'Ali' 
+      githubUsername: 'saiftali'

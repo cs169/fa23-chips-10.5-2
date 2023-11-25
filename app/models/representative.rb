@@ -3,6 +3,7 @@
 class Representative < ApplicationRecord
   has_many :news_items, dependent: :delete_all
 
+
   def self.find_official(name, title, ocdid, street, city, state, zip, political_party, photo)
     Representative.where('name = ? AND ocdid = ? AND title = ? AND street = ? AND city = ? AND state = ? AND zip = ? AND political_party = ? AND photo = ?', name, ocdid, title, street, city, state, zip, political_party, photo).first
   end
