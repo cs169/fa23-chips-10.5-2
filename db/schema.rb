@@ -45,12 +45,12 @@ ActiveRecord::Schema.define(version: 2023_11_25_100720) do
 
   create_table "representatives", force: :cascade do |t|
     t.string "name"
+    t.string "political_party"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "ocdid"
     t.string "title"
-    t.string "photo"
-    t.string "political_party"
+    t.json "photo"
     t.string "street"
     t.string "city"
     t.string "state"
