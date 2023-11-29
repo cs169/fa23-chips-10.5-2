@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_25_100720) do
+ActiveRecord::Schema.define(version: 2023_11_28_230855) do
 
   create_table "counties", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,27 @@ ActiveRecord::Schema.define(version: 2023_11_25_100720) do
     t.index ["county_id"], name: "index_events_on_county_id"
   end
 
+  create_table "finances", force: :cascade do |t|
+    t.string "relative_uri"
+    t.string "name"
+    t.string "party"
+    t.string "state"
+    t.string "district"
+    t.string "committee"
+    t.string "status"
+    t.float "total_from_individuals"
+    t.float "total_from_pacs"
+    t.float "total_contributions"
+    t.float "candidate_loans"
+    t.float "total_disbursements"
+    t.float "begin_cash"
+    t.float "end_cash"
+    t.float "total_refunds"
+    t.float "debts_owed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "news_items", force: :cascade do |t|
     t.string "title", null: false
     t.string "link", null: false
@@ -45,12 +66,12 @@ ActiveRecord::Schema.define(version: 2023_11_25_100720) do
 
   create_table "representatives", force: :cascade do |t|
     t.string "name"
+    t.string "political_party"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "ocdid"
     t.string "title"
-    t.string "photo"
-    t.string "political_party"
+    t.json "photo"
     t.string "street"
     t.string "city"
     t.string "state"
