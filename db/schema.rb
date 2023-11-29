@@ -50,8 +50,6 @@ ActiveRecord::Schema.define(version: 2023_11_28_230855) do
     t.float "end_cash"
     t.float "total_refunds"
     t.float "debts_owed"
-    t.string "date_coverage_from"
-    t.string "date_coverage_to"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

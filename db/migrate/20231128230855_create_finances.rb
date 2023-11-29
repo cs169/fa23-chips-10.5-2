@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateFinances < ActiveRecord::Migration[5.2]
   def change
     create_table :finances do |t|
@@ -17,8 +19,6 @@ class CreateFinances < ActiveRecord::Migration[5.2]
       t.float :end_cash
       t.float :total_refunds
       t.float :debts_owed
-      t.string :date_coverage_from
-      t.string :date_coverage_to
       t.timestamps
     end
   end
