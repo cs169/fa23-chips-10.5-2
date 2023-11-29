@@ -17,3 +17,21 @@ RSpec.describe NewsItem do
     expect(query).to eq(item)
   end
 end
+
+RSpec.describe NewsItem do
+  let(:representative) {Representative.create(id: 100)}
+  before do
+    representative.save!
+  end
+  
+  it 'is valid with a valid issue' do 
+    news_item = NewsItem.new(title: "Test Article", link: "https://www.google.com", representative_id: 100, issue: 2)
+    expect(news_item).to be_valid
+  end
+
+  it 'raises an ArgumentError with an invalid issue' do 
+    expect {
+      NewsItem.new(title: "Test Article", link: "https://www.google.com", representative_id: 100, issue: 102)
+    }.to raise_error(ArgumentError, "'102' is not a valid issue")
+  end
+end
