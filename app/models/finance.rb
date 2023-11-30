@@ -22,9 +22,25 @@ class Finance < ApplicationRecord
   
   def self.reformat_name(name)
     return name unless name.include?(',')
-
-    last_name, first_part = name.split(', ')
-    first_name, initial = first_part.split(' ', 2)
-    "#{first_name} #{initial} #{last_name}"
+    if name.include?('/')
+      name.split(' / ').map { |n| reformat_individual_name(n) }.join(' / ')
+    else
+      reformat_individual_name(name)
+    end
+  end
+  
+  def self.reformat_individual_name(individual_name)
+    parts = individual_name.split(', ')
+    return individual_name if parts.length < 2
+  
+    last_name = parts[0]
+    first_part = parts[1]
+  
+    # Split the first part into first name and initial (if present)
+    first_name_parts = first_part.split(' ')
+    first_name = first_name_parts[0]
+    initial = first_name_parts.length > 1 ? " #{first_name_parts[1]}" : ""
+  
+    "#{first_name}#{initial} #{last_name}".strip
   end
 end
