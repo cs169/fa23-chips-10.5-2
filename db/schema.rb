@@ -61,17 +61,18 @@ ActiveRecord::Schema.define(version: 2023_11_28_230855) do
     t.integer "representative_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "issue"
     t.index ["representative_id"], name: "index_news_items_on_representative_id"
   end
 
   create_table "representatives", force: :cascade do |t|
     t.string "name"
-    t.string "political_party"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "ocdid"
     t.string "title"
-    t.json "photo"
+    t.string "photo"
+    t.string "political_party"
     t.string "street"
     t.string "city"
     t.string "state"

@@ -43,4 +43,5 @@ Rails.application.routes.draw do
     
     # Campaign Finances
     get '/finances' => 'finances#search'
+    get '/finances/search' => 'finances#search_finance', as: 'search_finance'
 end
