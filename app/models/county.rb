@@ -7,4 +7,7 @@ class County < ApplicationRecord
   def std_fips_code
     fips_code.to_s.rjust(3, '0')
   end
+  def address
+    "#{name} #{state.symbol}"
+  end
 end
