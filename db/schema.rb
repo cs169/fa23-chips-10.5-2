@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 2023_11_28_230855) do
     t.datetime "updated_at", null: false
     t.string "ocdid"
     t.string "title"
-    t.string "political_party"
     t.string "photo"
+    t.string "political_party"
     t.string "street"
     t.string "city"
     t.string "state"

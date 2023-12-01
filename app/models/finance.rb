@@ -2,6 +2,8 @@
 
 class Finance < ApplicationRecord
   def self.get_candidates(data)
+    return [] unless data && data['results'].is_a?(Array)
+
     data['results'].map do |candidate|
       state_code = if candidate['state']
                      parts = candidate['state'].split('/')
@@ -38,6 +40,6 @@ class Finance < ApplicationRecord
     first_name = first_name_parts[0]
     initial = first_name_parts.length > 1 ? " #{first_name_parts[1]}" : ''
 
-    "#{first_name}#{initial} #{last_name}".strip
+    "#{first_name}#{initial} #{last_name}".strip.gsub(/\s+/, ' ')
   end
 end
