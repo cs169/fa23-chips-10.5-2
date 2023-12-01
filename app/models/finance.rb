@@ -2,14 +2,12 @@
 
 class Finance < ApplicationRecord
   def self.get_candidates(data)
-    Rails.logger.debug 'HERERERERRERRRERERERERE'
     data['results'].map do |candidate|
       state_code = if candidate['state']
                      parts = candidate['state'].split('/')
                      file_name = parts.last || ''
                      file_name.split('.').first
                    end
-
       {
         name:  reformat_name(candidate['name']),
         party: candidate['party'],
