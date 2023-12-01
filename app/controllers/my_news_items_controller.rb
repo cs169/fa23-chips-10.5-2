@@ -50,12 +50,11 @@ class MyNewsItemsController < SessionController
 
   def set_issues_list
     @issues_list = NewsItem.issues.keys
-  end 
+  end
 
   def set_news_item
     @news_item = NewsItem.find(params[:id])
   end
-
 
   # Only allow a list of trusted parameters through.
   def news_item_params
